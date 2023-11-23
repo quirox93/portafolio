@@ -74,10 +74,18 @@ import Icon from "./Icon.astro";
 
 			const button = this.querySelector("button");
 			// Get the current theme from local storage
-			const currentTheme = localStorage.getItem("theme");
+			let currentTheme = localStorage.getItem("theme");
+			console.log(currentTheme);
 			/** Set the theme to dark/light mode. */
 			const setTheme = (dark: boolean) => {
-				if (dark) localStorage.setItem("theme", "dark");
+				if (dark) {
+					localStorage.setItem("theme", "dark");
+					currentTheme = "dark";
+				} else {
+					localStorage.setItem("theme", "light");
+					currentTheme = "light";
+				}
+
 				document.documentElement.classList[dark ? "add" : "remove"](
 					"theme-dark"
 				);
@@ -90,7 +98,7 @@ import Icon from "./Icon.astro";
 			);
 
 			// Initialize button state to reflect current theme.
-			localStorage.setItem("theme", "dark");
+
 			setTheme(this.isDark(currentTheme));
 		}
 

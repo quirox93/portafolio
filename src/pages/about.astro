@@ -1,0 +1,127 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<BaseLayout title="Sobre mi | Brian Quiroz" description="Sobre Brian Quiroz">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="Sobre mi"
+				tagline="A continuación unos detalles sobre mis inicios."
+			>
+				<img
+					width="640"
+					height="361"
+					src="/assets/jugando.jpg"
+					alt="Brian quiroz jugando"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						Desde hace mucho tiempo que he estado dentro del mundo
+						de la programación. Inicialmente empece haciendo
+						videojuegos en Unity por gustos personales, consiguiendo
+						asi mis primeros trabajos como freelancer.
+					</p><br />
+					<p>
+						Luego decidi adentrarme al mundo del desarrollo web, en
+						donde actualmente estoy dedicandole mi tiempo en
+						aprender y mejorar mis conocimientos. Ahora mismo estoy
+						con el objetivo de conseguir un lugar en el mundo
+						profesional de esta area.
+					</p><br />
+					<p>
+						Otra de mis aficiones son las nuevas tecnologias que
+						estan surgiendo gracias al avance con el Machine
+						Learning. Siempre estoy atento a las novedades al
+						respecto y trato de combinar la misma cono mi trabajo
+						como desarrollador web.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Educación</h2>
+				<div class="content">
+					<p>
+						► Estudiante universitario de Ingenieria en Mecatronica
+						| UNLZ
+					</p>
+					<p>► Desarrollador Full Stack | Henry</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Habilidades</h2>
+				<div class="content">
+					<p>Pern Stack, NextJS, Astro, MongoDB, Scrum</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+		max-width: 640px;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
